@@ -26,7 +26,6 @@ const Popular = () => {
           .sort((a, b) => b.rating.average - a.rating.average)
           .slice(0, 20);
 				setTopShows(top30Shows)
-				console.log(top30Shows)
 			})
 			.catch(error => {
 				console.error('Error fetching popular shows:', error)

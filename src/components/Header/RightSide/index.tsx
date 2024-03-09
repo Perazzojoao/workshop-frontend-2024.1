@@ -1,15 +1,10 @@
+import SearchBar from '@/components/SearchBar';
 import Image from 'next/image';
 
 const RightSide = () => {
   return ( 
     <section className='flex items-center gap-x-5'>
-        <Image
-          src={'/icons/Search.png'}
-          alt="Ícone de lupa"
-          width={24}
-          height={24}
-          className='cursor-pointer'
-        />
+        <SearchBar />
         <a className='cursor-pointer hover:text-gray-400'>Infantil</a>
         <Image
           src={'/icons/GiftBox.png'}

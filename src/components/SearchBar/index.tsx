@@ -1,12 +1,21 @@
+'use client'
+
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Input } from "../ui/input";
+import { useContext } from "react";
+import { ApiContext } from "@/context/ApiContext";
 
 const SearchBar = () => {
+  const { search, setSearch } = useContext(ApiContext);
+
+  const setSearchValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="font-semibold">
@@ -19,9 +28,7 @@ const SearchBar = () => {
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-zinc-900 border-none opacity-80 text-gray-100">
-        <DropdownMenuItem>
-          <Input placeholder="Buscar" />
-        </DropdownMenuItem>
+          <Input placeholder="Buscar" className="text-black" value={search} onChange={setSearchValue} />
       </DropdownMenuContent>
     </DropdownMenu>
   );
