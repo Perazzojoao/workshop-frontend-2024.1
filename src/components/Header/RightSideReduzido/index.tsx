@@ -1,18 +1,10 @@
 import Image from 'next/image';
 
-const LeftSide = () => {
+const RightSideReduzido = () => {
   return ( 
     <section className='flex items-center gap-x-5'>
         <Image
           src={'/Search.png'}
-          alt="Ícone de lupa"
-          width={24}
-          height={24}
-          className='cursor-pointer'
-        />
-        <a>Infantil</a>
-        <Image
-          src={'/GiftBox.png'}
           alt="Ícone de lupa"
           width={24}
           height={24}
@@ -45,4 +37,4 @@ const LeftSide = () => {
   );
 }
  
-export default LeftSide;
+export default RightSideReduzido;

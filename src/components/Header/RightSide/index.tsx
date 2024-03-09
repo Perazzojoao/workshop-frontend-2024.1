@@ -1,17 +1,25 @@
 import Image from 'next/image';
 
-const LeftSideReduzido = () => {
+const RightSide = () => {
   return ( 
     <section className='flex items-center gap-x-5'>
         <Image
-          src={'/Search.png'}
+          src={'/icons/Search.png'}
+          alt="Ícone de lupa"
+          width={24}
+          height={24}
+          className='cursor-pointer'
+        />
+        <a className='cursor-pointer hover:text-gray-400'>Infantil</a>
+        <Image
+          src={'/icons/GiftBox.png'}
           alt="Ícone de lupa"
           width={24}
           height={24}
           className='cursor-pointer'
         />
         <Image
-          src={'/NotificationBell.png'}
+          src={'/icons/NotificationBell.png'}
           alt="Ícone de lupa"
           width={24}
           height={24}
@@ -19,14 +27,14 @@ const LeftSideReduzido = () => {
         />
         <div className='flex gap-x-2'>
           <Image
-            src={'/ProfileIMG.png'}
+            src={'/icons/ProfileIMG.png'}
             alt="Foto de perfil"
             width={32}
             height={32}
             className='cursor-pointer'
           />
           <Image
-            src={'/DownArrow.png'}
+            src={'/icons/DownArrow.png'}
             alt="Foto de perfil"
             width={16}
             height={16}
@@ -37,4 +45,4 @@ const LeftSideReduzido = () => {
   );
 }
  
-export default LeftSideReduzido;
+export default RightSide;

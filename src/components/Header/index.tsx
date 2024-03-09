@@ -4,9 +4,9 @@ import Image from 'next/image'
 import NavBar from './NavBar'
 import { useState } from 'react'
 import Dropdown from '../Dropdown'
-import LeftSide from './LeftSide'
-import LeftSideReduzido from './LeftSideReduzido'
 import Link from 'next/link'
+import RightSide from './RightSide'
+import RightSideReduzido from './RightSideReduzido'
 
 const Header = () => {
 	const [larguraDaJanela, setLarguraDaJanela] = useState(0)
@@ -18,14 +18,14 @@ const Header = () => {
 	window.addEventListener('resize', handleResize)
 
 	return (
-		<header className='bg-netflixBg text-gray-200 py-6 px-8 sm:px-16 flex flex-wrap gap-y-4 justify-center min-[449px]:justify-between fixed w-full'>
+		<header className='bg-netflixBg text-gray-200 py-6 px-8 sm:px-16 flex flex-wrap gap-y-4 justify-center min-[449px]:justify-between fixed z-50 w-full shadow-lg shadow-black'>
 			<div className='flex gap-12'>
 				<Link href='/'>
 					<Image src={'/NetflixLogoSvg.png'} alt='Netflix Logo' width={111} height={30} />
 				</Link>
 				{larguraDaJanela > 1100 ? <NavBar /> : <Dropdown />}
 			</div>
-			{larguraDaJanela > 680 ? <LeftSide /> : <LeftSideReduzido />}
+			{larguraDaJanela > 680 ? <RightSide /> : <RightSideReduzido />}
 		</header>
 	)
 }
