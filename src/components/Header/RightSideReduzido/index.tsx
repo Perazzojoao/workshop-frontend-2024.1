@@ -1,15 +1,10 @@
+import SearchBar from '@/components/SearchBar';
 import Image from 'next/image';
 
 const RightSideReduzido = () => {
   return ( 
     <section className='flex items-center gap-x-5'>
-        <Image
-          src={'/Search.png'}
-          alt="Ícone de lupa"
-          width={24}
-          height={24}
-          className='cursor-pointer'
-        />
+        <SearchBar />
         <Image
           src={'/NotificationBell.png'}
           alt="Ícone de lupa"

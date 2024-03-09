@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { ShowList } from '../../types/showList';
 import axios from "axios";
 import Card from "./Card";
+import { ApiContext } from "@/context/ApiContext";
 
 const CardList = () => {
-  const [showList, setShowList] = useState([] as ShowList);
+  const { showList, setShowList } = useContext(ApiContext);
 
   useEffect(() => {
     axios.get<ShowList>('http://api.tvmaze.com/shows')
@@ -18,11 +19,15 @@ const CardList = () => {
       });
   }, []);
 
-  return ( 
-    <section className="flex flex-wrap gap-3 sm:gap-5 justify-center mt-16">
-      {showList.map(show => <Card key={show.id} show={show} />)}
-    </section>
+  return (
+    <div className="mt-16">
+      <h2 className='text-3xl font-semibold mb-5 text-center'>Séries</h2>
+      <section className="flex flex-wrap gap-3 sm:gap-5 justify-center">
+        {showList.map(show => <Card key={show.id} show={show} />)}
+      </section>
+
+    </div>
   );
 }
- 
+
 export default CardList;
