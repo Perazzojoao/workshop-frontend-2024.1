@@ -14,7 +14,7 @@ import { useContext, useEffect } from 'react'
 import Card from '../CardList/Card'
 
 const Popular = () => {
-	const { topShows, setTopShows } = useContext(ApiContext)
+	const { topShows, setTopShows, setShowList } = useContext(ApiContext)
 
 	useEffect(() => {
 		axios
@@ -26,6 +26,7 @@ const Popular = () => {
 					.sort((a, b) => b.rating.average - a.rating.average)
 					.slice(0, 20);
 				setTopShows(top30Shows)
+				setShowList(shows)
 			})
 			.catch(error => {
 				console.error('Error fetching popular shows:', error)
