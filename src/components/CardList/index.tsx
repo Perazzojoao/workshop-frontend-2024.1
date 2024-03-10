@@ -7,7 +7,7 @@ import Card from './Card'
 import { ApiContext } from '@/context/ApiContext'
 
 const CardList = () => {
-  const { showList, setShowList, search } = useContext(ApiContext)
+  const { showList, setShowList, search, setSearch } = useContext(ApiContext)
 
   useEffect(() => {
     axios
@@ -18,6 +18,8 @@ const CardList = () => {
       .catch(error => {
         console.error('Error fetching data: ', error)
       })
+
+    setSearch('')
   }, [])
 
   return (

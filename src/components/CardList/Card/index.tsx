@@ -1,5 +1,7 @@
+import { ApiContext } from '@/context/ApiContext'
 import { Show } from '@/types/showList'
 import { useRouter } from 'next/navigation'
+import { useContext } from 'react'
 
 type CardProps = {
 	show: Show
@@ -7,8 +9,11 @@ type CardProps = {
 
 const Card = ({ show }: CardProps) => {
 
+	const { setSearch } = useContext(ApiContext)
+
 	const router = useRouter()
 	const onClick = () => {
+		setSearch('')
 		router.push(`/${show.id}`)
 	}
 

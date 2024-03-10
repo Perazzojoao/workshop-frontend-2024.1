@@ -73,6 +73,9 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      screens: {
+        xsm: "432px",
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

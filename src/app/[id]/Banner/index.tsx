@@ -2,7 +2,6 @@
 
 import { ImageType, ImageList } from '@/types/imagesType'
 import axios from 'axios'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 type BannerProps = {
@@ -10,15 +9,26 @@ type BannerProps = {
 }
 
 const Banner = ({ id }: BannerProps) => {
-	const [banner, setBanner] = useState({} as ImageType)
+	const [bannerUrl, setBannerUrl] = useState('')
 
 	useEffect(() => {
 		axios
 			.get<ImageList>(`https://api.tvmaze.com/shows/${id}/images`)
 			.then(response => {
 				const images = response.data
-				setBanner(images.find((image: ImageType) => image.type === 'banner') as ImageType)
-				console.log(response.data)
+        const banner = images.find((image: ImageType) => image.type === 'banner')
+        const background = images.find((image: ImageType) => image.type === 'background')
+        const poster = images.find((image: ImageType) => image.type === 'poster')
+				setBannerUrl(() => {
+          if (banner) {
+            return banner.resolutions.original.url
+          } else if (background) {
+            return background.resolutions.original.url
+          } else if (poster){
+            return poster.resolutions.original.url
+          }
+          return ''
+        })
 			})
 			.catch(error => {
 				console.log(error)
@@ -27,7 +37,7 @@ const Banner = ({ id }: BannerProps) => {
 
 	return (
 		<>
-			{/* <Image src={banner.resolutions.medium.url} alt='Banner' /> */}
+			<img src={bannerUrl} alt='Banner' className='w-screen' />
 		</>
 	)
 }
