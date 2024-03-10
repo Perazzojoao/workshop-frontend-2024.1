@@ -21,7 +21,7 @@ const Header = () => {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [window.innerWidth])
+  }, [])
 
 	return (
 		<header className='bg-netflixBg text-gray-200 py-6 px-8 sm:px-16 flex flex-wrap gap-y-4 justify-center min-[449px]:justify-between fixed z-50 w-full shadow-lg shadow-black'>
