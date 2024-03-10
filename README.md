@@ -1,7 +1,7 @@
 # workshop-frontend-2024.1
 > Repositório referente ao desafio Netflix da Fábrica de Software Front end
 
-`Link deploy`: [desafio-Netflix](https://netflix-qifreb9p8-joao-victor-perazzos-projects.vercel.app)
+`Link deploy`: [desafio-Netflix](https://netflix-lha3h29el-joao-victor-perazzos-projects.vercel.app)
 
 ## Utilitários
 
